@@ -42,6 +42,13 @@ Body
 	"name": "Luiz",
 	"email": "teste@email.com"
 }
+
+***Use Basic Auth for next endpoints
+```
+username: alice
+password: better-password
+```
+
 ```
 *GET Specific User by ID
 

@@ -24,10 +24,6 @@ object UserController {
         ctx.json(userDao.findById(ctx.pathParam("user-id").toInt())!!)
     }
 
-    fun getUserByEmail(ctx: Context){
-        ctx.json(userDao.findByEmail(ctx.pathParam("email"))!!)
-    }
-
     fun updateUser(ctx: Context) {
         val user = ctx.body<com.devlhse.javalincrud.model.User>()
         userDao.update(
