@@ -1,7 +1,20 @@
-FROM openjdk:8-jre-alpine
+# Start with a base image containing Java runtime
+FROM openjdk:8-jdk-alpine
 
+# Add Maintainer Info
+LABEL maintainer="luiz.hse@hotmail.com"
+
+# Add a volume pointing to /tmp
+VOLUME /tmp
+
+# Expose port
 EXPOSE 7000
-ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/javalin/my-javalin.jar"]
 
-ARG JAR_FILE
-ADD target/${JAR_FILE} /usr/share/javalin/my-javalin.jar
+# The application's jar file
+ARG JAR_FILE=build/libs/javalincrud-0.0.1-SNAPSHOT.jar
+
+# Add the application's jar to the container
+ADD ${JAR_FILE} javalincrud.jar
+
+# Run the jar file
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/javalincrud.jar"]

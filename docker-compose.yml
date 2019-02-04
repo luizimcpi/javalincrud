@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  app:
+    image: javalincrud
+    container_name: javalin-crud-app
+    ports:
+      - 7000:7000
