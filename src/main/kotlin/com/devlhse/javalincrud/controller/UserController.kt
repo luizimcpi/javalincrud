@@ -1,6 +1,7 @@
 package com.devlhse.javalincrud.controller
 
 import com.devlhse.javalincrud.dao.UserInMemoryDao
+import com.devlhse.javalincrud.exception.NotFoundException
 import com.devlhse.javalincrud.service.EmailService
 import io.javalin.Context
 
@@ -21,7 +22,11 @@ object UserController {
     }
 
     fun getUser(ctx: Context) {
-        ctx.json(userDao.findById(ctx.pathParam("user-id").toInt())!!)
+        try{
+            ctx.json(userDao.findById(ctx.pathParam("user-id").toInt())!!)
+        }catch (e: Exception){
+            throw NotFoundException("Car Not Found")
+        }
     }
 
     fun updateUser(ctx: Context) {
