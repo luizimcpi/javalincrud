@@ -1,4 +1,4 @@
-package com.devlhse.javalincrud.dao
+package com.devlhse.javalincrud.repository
 
 import com.devlhse.javalincrud.model.User
 import java.util.concurrent.atomic.AtomicInteger
