@@ -11,8 +11,11 @@ val serviceModule = module {
     single { EmailServiceImpl() as EmailService }
 }
 
-
 val repositoryModule = module {
 
     single { UserRepositoryImpl() as UserRepository }
+}
+
+val routesModule: Module = module {
+    single { UserRoutes(get()) }
 }
